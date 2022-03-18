@@ -23,11 +23,11 @@ pub fn build(b: *std.build.Builder) void {
     example1.setBuildMode(mode);
     example1.install();
 
-    // const example2 = b.addExecutable("example-2", "src/example-2.zig");
-    // example2.linkSystemLibrary("gtk4");
-    // example2.setTarget(target);
-    // example2.setBuildMode(mode);
-    // example2.install();
+    const example2 = b.addExecutable("example-2", "src/example-2.zig");
+    example2.linkSystemLibrary("gtk4");
+    example2.setTarget(target);
+    example2.setBuildMode(mode);
+    example2.install();
 
     // const example4 = b.addExecutable("example-4", "src/example-4.zig");
     // example4.linkSystemLibrary("gtk4");
@@ -41,8 +41,8 @@ pub fn build(b: *std.build.Builder) void {
     const run_cmd_1 = example1.run();
     run_cmd_1.step.dependOn(b.getInstallStep());
 
-    // const run_cmd_2 = example2.run();
-    // run_cmd_2.step.dependOn(b.getInstallStep());
+    const run_cmd_2 = example2.run();
+    run_cmd_2.step.dependOn(b.getInstallStep());
 
     // const run_cmd_4 = example4.run();
     // run_cmd_4.step.dependOn(b.getInstallStep());
@@ -53,8 +53,8 @@ pub fn build(b: *std.build.Builder) void {
     const run_step_1 = b.step("example1", "Run example 1");
     run_step_1.dependOn(&run_cmd_1.step);
 
-    // const run_step_2 = b.step("example2", "Run example 2");
-    // run_step_2.dependOn(&run_cmd_2.step);
+    const run_step_2 = b.step("example2", "Run example 2");
+    run_step_2.dependOn(&run_cmd_2.step);
 
     // const run_step_4 = b.step("example4", "Run example 4");
     // run_step_4.dependOn(&run_cmd_4.step);
