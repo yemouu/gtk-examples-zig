@@ -5,3 +5,11 @@ I'm learning zig while I do this (and a little bit about C too I guess) so thing
 My here goal is just to replicate the examples and maybe someone will find this useful.
 
 Use this however you want.
+
+# Run example
+
+To run an example, simply run zig build with the example number
+
+```
+zig build example0
+```
