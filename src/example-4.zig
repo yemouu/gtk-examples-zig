@@ -149,7 +149,7 @@ pub fn close_window() void {
         c.cairo_surface_destroy(surface);
 }
 
-pub fn activate(app: *c.GtkApplication, user_data: ?c.gpointer) void {
+pub fn activate(app: *c.GtkApplication, user_data: c.gpointer) void {
     _ = user_data;
 
     const window: *c.GtkWidget = c.gtk_application_window_new(app);
